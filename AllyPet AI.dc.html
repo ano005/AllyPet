@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="text/babel" src="./ios-frame.jsx"></script>
+<script src="https://elevenlabs.io/convai-widget/index.js" async=""></script>
+<style>
+body{margin:0;background:#ECE7DA;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#3350E8;text-decoration:none}
+a:hover{color:#141311}
+@keyframes ap-pulse{0%{transform:scale(1);opacity:.55}70%{transform:scale(1.9);opacity:0}100%{transform:scale(1.9);opacity:0}}
+@keyframes ap-bar{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+@keyframes ap-dot{0%,80%,100%{opacity:.25}40%{opacity:1}}
+</style>
+</helmet>
+
+<div style="background:#ECE7DA;min-height:100vh">
+
+<nav style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px 44px;background:#ECE7DA;border-bottom:1px solid rgba(20,19,17,.1)">
+  <div style="display:flex;align-items:center;gap:9px;flex-shrink:0">
+    <svg width="36" height="36" viewBox="0 0 26 26" fill="none" style="flex-shrink:0">
+      <path d="M13 2.5L22 6V12.5C22 18 18 21.5 13 23.5C8 21.5 4 18 4 12.5V6L13 2.5Z" stroke="#141311" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M13 9V17M9 13H17" stroke="#3350E8" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <span style="font-weight:800;font-size:22px;letter-spacing:-.3px;color:#141311;white-space:nowrap">Ally<span style="font-weight:800">Pet</span> <span style="font-weight:500;color:#3350E8">AI</span></span>
+  </div>
+  <div style="display:flex;align-items:center;gap:40px">
+    <a href="#demo" style="font-size:16px;font-weight:500;color:rgba(20,19,17,.65)">How it works</a>
+    <a href="#insurers" style="font-size:16px;font-weight:500;color:rgba(20,19,17,.65)">For Insurers</a>
+    <a href="#demo" style="background:#141311;color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:8px">Get Started</a>
+  </div>
+</nav>
+
+<section style="max-width:900px;margin:0 auto;padding:100px 44px 0">
+  <h1 style="margin:0;font-size:58px;font-weight:800;line-height:1.05;letter-spacing:-1.2px;color:#141311">
+    Every symptom, timestamped.<br/>Every claim, backed by a <span style="color:#3350E8">vet-ready note.</span>
+  </h1>
+
+  <div style="margin-top:64px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:22px;line-height:1.55;color:#141311;max-width:660px">
+    "We built AllyPet AI so no claim gets denied because a story didn't line up."
+  </div>
+  <div style="margin-top:14px;max-width:660px;text-align:right;font-size:16px;color:rgba(20,19,17,.65)">The AllyPet AI Team</div>
+
+  <div style="display:flex;gap:14px;margin-top:44px">
+    <a href="#demo" style="background:#141311;color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:8px">Try the Demo</a>
+    <a href="#insurers" style="background:transparent;color:#141311;font-weight:700;font-size:15px;padding:15px 26px;border-radius:8px;border:1.5px solid #141311">See for Insurers</a>
+  </div>
+
+</section>
+
+<section style="padding:0 44px 90px">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="margin-top:60px;font-size:38px;font-weight:700;line-height:1.35;color:#141311">
+      Missing or incomplete clinical histories from vets cause <span style="color:#3350E8">42% of all insurance processing delays.</span>
+    </div>
+
+    <h3 style="margin:44px 0 0;font-size:20px;font-weight:800;color:#141311;letter-spacing:-.3px">Cost of these Delays</h3>
+    <div style="margin-top:18px;display:grid;grid-template-columns:1.5fr 1fr;gap:20px">
+      <div style="background:#141311;border-radius:16px;padding:36px 32px;display:flex;flex-direction:column;justify-content:center;gap:12px">
+        <div style="font-size:14px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.5);text-transform:uppercase">Insurers</div>
+        <div style="font-size:56px;font-weight:800;color:#fff;letter-spacing:-2px;line-height:1">£18.8M+</div>
+        <div style="font-size:16px;color:rgba(255,255,255,.85);line-height:1.5;max-width:380px">lost yearly, industry-wide, to manual claims processing and delayed payouts</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="background:#3350E8;border-radius:16px;padding:22px 24px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.65);text-transform:uppercase">Pet Owners</div>
+          <div style="font-size:27px;font-weight:800;color:#fff;letter-spacing:-.5px">18 days avg. wait</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.9);line-height:1.4">stuck in review while vet bills pile up</div>
+        </div>
+        <div style="background:#5B6F52;border-radius:16px;padding:22px 24px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.65);text-transform:uppercase">Vet Clinics</div>
+          <div style="font-size:27px;font-weight:800;color:#fff;letter-spacing:-.5px">6 hrs/week</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.9);line-height:1.4">lost chasing records and underwriter calls</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:26px;font-family:Georgia,serif;font-size:19px;font-weight:700;line-height:1.6;color:#141311;text-align:center">
+      An AI Veterinary Medical Scribe lowers the friction between all three parties.
+    </div>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+      <sc-for list="{{ stakeholderTabs }}" as="tab" hint-placeholder-count="3">
+        <div style="{{ tab.tabStyle }}" onClick="{{ tab.select }}">
+          <sc-if value="{{ tab.active }}" hint-placeholder-val="{{ false }}">
+            <span>●</span>
+          </sc-if>
+          {{ tab.label }}
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:20px;max-width:600px;margin-left:auto;margin-right:auto;background:#fff;border:1px solid rgba(20,19,17,.1);border-radius:14px;padding:26px 30px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;gap:12px">
+        <div style="flex-shrink:0;width:22px;height:22px;border-radius:999px;background:rgba(20,19,17,.08);color:#141311;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">!</div>
+        <div>
+          <div style="font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(20,19,17,.45)">The problem</div>
+          <div style="font-size:19px;line-height:1.5;color:#141311;margin-top:8px">
+            <sc-for list="{{ activeStakeholder.problemParts }}" as="part" hint-placeholder-count="1"><span style="{{ part.style }}">{{ part.text }}</span></sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="height:1px;background:rgba(20,19,17,.1)"></div>
+      <div style="display:flex;gap:12px">
+        <div style="flex-shrink:0;width:22px;height:22px;border-radius:999px;background:#3350E8;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</div>
+        <div>
+          <div style="font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#3350E8">How AllyPet AI helps</div>
+          <div style="font-size:19px;line-height:1.5;color:#141311;margin-top:8px">
+            <sc-for list="{{ activeStakeholder.solutionParts }}" as="part" hint-placeholder-count="1"><span style="{{ part.style }}">{{ part.text }}</span></sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:900px;margin:0 auto;padding:0 44px;border-top:1px solid rgba(20,19,17,.12);padding-top:48px;padding-bottom:90px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px">
+  <div>
+    <div style="font-weight:800;font-size:32px;letter-spacing:.06em;color:#3350E8">01</div>
+    <div style="font-weight:700;font-size:32px;margin-top:14px;color:#141311">Record</div>
+  </div>
+  <div>
+    <div style="font-weight:800;font-size:32px;letter-spacing:.06em;color:#3350E8">02</div>
+    <div style="font-weight:700;font-size:32px;margin-top:14px;color:#141311">Draft</div>
+  </div>
+  <div>
+    <div style="font-weight:800;font-size:32px;letter-spacing:.06em;color:#3350E8">03</div>
+    <div style="font-weight:700;font-size:32px;margin-top:14px;color:#141311">Verify</div>
+  </div>
+</section>
+
+<section id="demo" style="background:#fff;border-top:1px solid rgba(20,19,17,.1);border-bottom:1px solid rgba(20,19,17,.1);padding:96px 44px">
+  <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:360px 1fr;gap:64px;align-items:start">
+    <div>
+      <h2 style="margin:0;font-size:34px;font-weight:800;color:#141311;letter-spacing:-.5px">See it work</h2>
+      <p style="font-size:16px;line-height:1.6;color:rgba(20,19,17,.55);margin-top:12px">
+        Tap through a real submission for {{ petName }}, a Labrador with sudden limping.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:36px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+          <div onClick="{{ s.select }}" style="{{ s.tabStyle }}">
+            <span style="font-family:ui-monospace,monospace;font-size:12px;font-weight:700;opacity:.6">{{ s.num }}</span>
+            <span style="font-weight:600;font-size:15px">{{ s.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:28px;display:flex;align-items:center;gap:10px">
+        <div style="{{ autoplayDotStyle }}"></div>
+        <span onClick="{{ toggleAutoplay }}" style="font-size:13px;color:rgba(20,19,17,.5);cursor:pointer;text-decoration:underline">{{ autoplayLabel }}</span>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center">
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" title="{{ phoneTitle }}" hint-size="320,660">
+
+        <sc-if value="{{ isRecord }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;align-items:center;padding:60px 24px 0;height:100%;background:#F7F5EF">
+            <div style="font-size:13px;font-weight:600;color:rgba(20,19,17,.45)">{{ petName }} · {{ petBreed }}</div>
+            <div style="position:relative;width:100px;height:100px;margin-top:50px;display:flex;align-items:center;justify-content:center">
+              <div style="position:absolute;inset:0;border-radius:999px;background:#3350E8;animation:ap-pulse 1.8s ease-out infinite"></div>
+              <div style="position:absolute;inset:0;border-radius:999px;background:#3350E8;animation:ap-pulse 1.8s ease-out infinite;animation-delay:.6s"></div>
+              <div style="position:relative;width:74px;height:74px;border-radius:999px;background:#3350E8;display:flex;align-items:center;justify-content:center">
+                <div style="width:16px;height:24px;border-radius:8px;background:#fff"></div>
+              </div>
+            </div>
+            <div style="margin-top:26px;font-weight:700;font-size:16px;color:#141311">Listening…</div>
+            <div style="display:flex;gap:5px;margin-top:14px;height:20px;align-items:center">
+              <sc-for list="{{ waveBars }}" as="b" hint-placeholder-count="9">
+                <div style="{{ b.style }}"></div>
+              </sc-for>
+            </div>
+            <div style="margin-top:30px;background:#fff;border-radius:12px;padding:16px;font-family:Georgia,serif;font-style:italic;font-size:13.5px;line-height:1.6;color:rgba(20,19,17,.7);width:100%;box-sizing:border-box">
+              "{{ transcript }}"
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isDraft }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:24px 20px;height:100%;background:#F7F5EF;box-sizing:border-box;overflow:auto">
+            <div style="display:flex;justify-content:space-between;align-items:baseline">
+              <div style="font-weight:800;font-size:15px;color:#141311">Note Draft</div>
+              <div style="font-family:ui-monospace,monospace;font-size:11px;color:rgba(20,19,17,.45)">{{ claimId }}</div>
+            </div>
+            <div style="font-size:11px;color:rgba(20,19,17,.4);margin-top:2px">{{ draftTimestamp }}</div>
+            <div style="display:flex;flex-direction:column;gap:14px;margin-top:18px">
+              <sc-for list="{{ soapRows }}" as="row" hint-placeholder-count="4">
+                <div>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div style="{{ row.chipStyle }}">{{ row.letter }}</div>
+                    <div style="font-weight:700;font-size:12.5px;color:#141311">{{ row.label }}</div>
+                  </div>
+                  <div style="font-size:12.5px;line-height:1.55;color:rgba(20,19,17,.68);margin-top:6px">{{ row.text }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isSignoff }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:28px 20px;height:100%;background:#F7F5EF;box-sizing:border-box">
+            <div style="font-weight:800;font-size:15px;color:#141311">Vet Sign-off</div>
+            <div style="display:flex;align-items:center;gap:12px;margin-top:22px">
+              <div style="width:44px;height:44px;border-radius:999px;background:#141311;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px">RP</div>
+              <div>
+                <div style="font-weight:700;font-size:14px;color:#141311">Dr. R. Patel, DVM</div>
+                <div style="font-size:12px;color:rgba(20,19,17,.5)">Silver Creek Animal Hospital</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:22px;background:#E6F3EA;padding:10px 12px;border-radius:8px">
+              <div style="width:18px;height:18px;border-radius:999px;background:#2E9E52;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</div>
+              <div style="font-size:12.5px;font-weight:600;color:#1F7A3D">Diagnosis confirmed</div>
+            </div>
+            <div style="font-size:12.5px;line-height:1.6;color:rgba(20,19,17,.68);margin-top:16px">Mild soft-tissue strain, left hind limb. Owner-reported timing and symptoms consistent with exam findings.</div>
+            <div style="margin-top:26px;font-family:Georgia,serif;font-style:italic;font-size:15px;color:#141311;border-bottom:1px solid rgba(20,19,17,.3);padding-bottom:6px;width:fit-content">R. Patel, DVM</div>
+            <div style="font-size:11px;color:rgba(20,19,17,.4);margin-top:6px">Signed · Jul 25, 2026 · 6:03 PM</div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isSent }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:40px 24px;height:100%;background:#F7F5EF;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center">
+            <div style="width:64px;height:64px;border-radius:999px;background:#2E9E52;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;font-weight:800">✓</div>
+            <div style="font-weight:800;font-size:16px;color:#141311;margin-top:20px">Sent to Bright Path Pet Insurance</div>
+            <div style="font-family:ui-monospace,monospace;font-size:12px;color:rgba(20,19,17,.5);margin-top:8px">{{ claimId }}</div>
+            <div style="margin-top:14px;background:#E6F3EA;color:#1F7A3D;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px">Delivered &amp; timestamped</div>
+            <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px;width:100%">
+              <div style="display:flex;align-items:center;gap:8px;background:#fff;padding:10px 12px;border-radius:8px;font-size:12.5px;color:#141311"><span style="color:#2E9E52;font-weight:800">✓</span>Owner SOAP note</div>
+              <div style="display:flex;align-items:center;gap:8px;background:#fff;padding:10px 12px;border-radius:8px;font-size:12.5px;color:#141311"><span style="color:#2E9E52;font-weight:800">✓</span>Vet clinic record</div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isTimeline }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:24px 20px;height:100%;background:#F7F5EF;box-sizing:border-box;overflow:auto">
+            <div style="font-weight:800;font-size:15px;color:#141311">Timeline</div>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px">
+              <sc-for list="{{ timelineEntries }}" as="t" hint-placeholder-count="4">
+                <div style="background:#fff;border-radius:10px;padding:12px">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline">
+                    <div style="font-weight:700;font-size:13px;color:#141311">{{ t.pet }}</div>
+                    <div style="{{ t.pillStyle }}">{{ t.status }}</div>
+                  </div>
+                  <div style="font-size:12px;color:rgba(20,19,17,.55);margin-top:4px">{{ t.symptom }}</div>
+                  <div style="font-size:11px;color:rgba(20,19,17,.4);margin-top:4px">{{ t.date }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+      </x-import>
+    </div>
+  </div>
+</section>
+
+<section id="insurers" style="padding:100px 44px">
+  <div style="max-width:1000px;margin:0 auto">
+    <h2 style="margin:0;font-size:34px;font-weight:800;color:#141311;letter-spacing:-.5px">Built for insurance review</h2>
+    <p style="font-size:16px;line-height:1.6;color:rgba(20,19,17,.55);margin-top:12px;max-width:600px">
+      Every claim arrives with the owner's timestamped account already lined up against the vet's own record, so reviewers spend less time chasing down whether a story holds up.
+    </p>
+
+    <div style="margin-top:44px;background:#fff;border:1px solid rgba(20,19,17,.1);border-radius:16px;padding:32px;box-shadow:0 24px 60px -20px rgba(20,19,17,.35),0 4px 14px rgba(20,19,17,.08)">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px">
+        <div style="font-weight:700;font-size:15px;color:#141311">{{ claimId }} · {{ petName }}, {{ petBreed }}</div>
+        <div style="background:#E6F3EA;color:#1F7A3D;font-weight:700;font-size:13px;padding:7px 14px;border-radius:999px">{{ consistencyScore }}% Consistency · Timestamp Verified</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 40px 1fr;gap:0 20px;margin-top:32px;padding-bottom:12px;border-bottom:1px solid rgba(20,19,17,.1)">
+        <div style="font-size:12.5px;font-weight:800;letter-spacing:.05em;color:rgba(20,19,17,.7);text-transform:uppercase">Owner-Reported (Note)</div>
+        <div></div>
+        <div style="font-size:12.5px;font-weight:800;letter-spacing:.05em;color:rgba(20,19,17,.7);text-transform:uppercase">Vet Clinic Record</div>
+      </div>
+
+      <sc-for list="{{ compareRows }}" as="row" hint-placeholder-count="4">
+        <sc-if value="{{ row.visible }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ row.rowStyle }}" onClick="{{ row.onClick }}">
+            <div>
+              <div style="font-size:11px;font-weight:700;color:rgba(20,19,17,.4);margin-bottom:4px">{{ row.field }}</div>
+              <div style="font-size:14px;color:#141311;line-height:1.4">{{ row.owner }}</div>
+            </div>
+            <div style="display:flex;justify-content:center">
+              <div style="{{ row.matchIconStyle }}">{{ row.matchGlyph }}</div>
+            </div>
+            <div>
+              <div style="font-size:11px;font-weight:700;color:rgba(20,19,17,.4);margin-bottom:4px">{{ row.field }}</div>
+              <div style="font-size:14px;color:#141311;line-height:1.4">{{ row.vet }}</div>
+            </div>
+          </div>
+          <sc-if value="{{ row.showDetail }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 18px;padding:12px 16px;background:#FBF0DC;border-radius:8px;font-size:13px;line-height:1.5;color:rgba(20,19,17,.75)">
+              <span style="font-weight:700;color:#A6650E">Transcript snippet:</span> "No mention of previous injuries during intake call." Reviewer judgment recommended before finalizing.
+            </div>
+          </sc-if>
+        </sc-if>
+      </sc-for>
+
+      <div style="margin-top:20px;font-family:Georgia,serif;font-style:italic;font-size:13.5px;color:rgba(20,19,17,.5)">
+        Flagged fields are surfaced for reviewer judgment, not auto-rejected. Click a flagged row to inspect.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer style="border-top:1px solid rgba(20,19,17,.1);padding:52px 44px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+  <div style="font-size:14px;color:rgba(20,19,17,.45)">© 2026 AllyPet AI</div>
+  <div style="display:flex;align-items:center;gap:20px">
+    <div style="font-weight:700;font-size:16px;color:#141311">Ready to make every claim provable?</div>
+    <a href="#demo" style="background:#141311;color:#fff;font-weight:700;font-size:14px;padding:12px 22px;border-radius:8px">Get Started</a>
+  </div>
+</footer>
+
+<elevenlabs-convai agent-id="agent_4101kyezhjdseps9ays2rm43z7p5"></elevenlabs-convai>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1200},&quot;autoAdvanceDemo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Demo behavior&quot;},&quot;showFlaggedField&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Insurance dashboard&quot;}}">
+const STAKEHOLDER_DEFS = [
+  { key: 'insurers', label: 'Insurers', color: '#141311',
+    problem: [['Manual review of ', 0], ['inconsistent clinical histories', 1], [' delays payouts across the entire portfolio.', 0]],
+    solution: [['AllyPet AI cross-checks vet notes against owner-reported symptoms in ', 0], ['real time', 1], [', cutting review time and disputes.', 0]] },
+  { key: 'owners', label: 'Pet Owners', color: '#3350E8',
+    problem: [['Claims stall in review while vet bills pile up, leaving owners to ', 0], ['cover the cost out of pocket', 1], ['.', 0]],
+    solution: [['A ', 0], ['timestamped SOAP note', 1], [' travels with every claim, so reviewers have what they need on the first pass.', 0]] },
+  { key: 'vets', label: 'Vet Clinics', color: '#5B6F52',
+    problem: [['Staff lose ', 0], ['hours each week', 1], [' chasing records and fielding underwriter follow-ups.', 0]],
+    solution: [['AllyPet AI drafts the SOAP note automatically from the owner call, ', 0], ['ready for vet sign-off in seconds', 1], ['.', 0]] },
+];
+
+const STEP_DEFS = [
+  { key: 'record', num: '01', label: 'Record' },
+  { key: 'draft', num: '02', label: 'Note Draft' },
+  { key: 'signoff', num: '03', label: 'Vet Sign-off' },
+  { key: 'sent', num: '04', label: 'Sent' },
+  { key: 'timeline', num: '05', label: 'Timeline' },
+];
+
+class Component extends DCLogic {
+  state = { step: 'record', autoplay: this.props.autoAdvanceDemo ?? false, stakeholderTab: 'insurers', flagExpanded: false };
+
+  componentDidMount() {
+    this._timer = setInterval(() => {
+      if (!this.state.autoplay) return;
+      const idx = STEP_DEFS.findIndex(s => s.key === this.state.step);
+      const next = STEP_DEFS[(idx + 1) % STEP_DEFS.length];
+      this.setState({ step: next.key });
+    }, 2600);
+  }
+  componentWillUnmount() { clearInterval(this._timer); }
+
+  renderVals() {
+    const step = this.state.step;
+    const petName = 'Max';
+    const petBreed = 'Labrador Retriever';
+    const claimId = 'AP-48291-JUL';
+    const showFlagged = this.props.showFlaggedField ?? true;
+
+    const steps = STEP_DEFS.map(s => ({
+      ...s,
+      select: () => this.setState({ step: s.key }),
+      tabStyle: {
+        display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px',
+        borderRadius: 8, cursor: 'pointer',
+        background: s.key === step ? '#141311' : 'transparent',
+        color: s.key === step ? '#fff' : 'rgba(20,19,17,.6)',
+      },
+    }));
+
+    const chip = (letter, bg) => ({
+      chipStyle: {
+        width: 20, height: 20, borderRadius: 5, background: bg, color: '#fff',
+        fontSize: 11, fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center',
+      },
+      letter,
+    });
+
+    const soapRows = [
+      { label: 'Subjective', text: `Owner reports ${petName} began limping on his left hind leg roughly 2 hours ago, after a 30-minute walk. Reluctant to bear weight; appetite normal.`, ...chip('S', '#3350E8') },
+      { label: 'Objective', text: 'Voice-recorded by owner via AllyPet AI. No clinic vitals attached yet, pending vet visit.', ...chip('O', '#6B4EE8') },
+      { label: 'Assessment (AI-drafted)', text: 'Suspected soft-tissue strain or minor joint sprain. Recommend gait assessment within 24 hours.', ...chip('A', '#C24EA0') },
+      { label: 'Plan', text: 'Schedule same-day vet visit. Restrict strenuous activity. Monitor for swelling.', ...chip('P', '#2E9E52') },
+    ];
+
+    const pill = (bg, fg) => ({ background: bg, color: fg, fontSize: 11, fontWeight: 700, padding: '4px 10px', borderRadius: 999 });
+    const timelineEntries = [
+      { pet: 'Max', symptom: 'Limping, left hind leg', date: 'Jul 25, 2026', status: 'Claim Approved', pillStyle: pill('#E6F3EA', '#1F7A3D') },
+      { pet: 'Bella', symptom: 'Vomiting, 2 episodes', date: 'Jul 18, 2026', status: 'Under Review', pillStyle: pill('#FBEEDB', '#A6650E') },
+      { pet: 'Max', symptom: 'Ear scratching', date: 'Jun 30, 2026', status: 'Claim Approved', pillStyle: pill('#E6F3EA', '#1F7A3D') },
+      { pet: 'Coco', symptom: 'Skin rash', date: 'Jun 12, 2026', status: 'Sent to Vet', pillStyle: pill('#EAEAF5', '#3350E8') },
+    ];
+
+    const matchIcon = (ok) => ok
+      ? { matchIconStyle: { width: 26, height: 26, borderRadius: 999, background: '#2E9E52', color: '#fff', fontSize: 13, fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center' }, matchGlyph: '✓' }
+      : { matchIconStyle: { width: 32, height: 32, borderRadius: 999, background: '#E8A63D', color: '#fff', fontSize: 15, fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 0 4px rgba(232,166,61,.2)' }, matchGlyph: '!' };
+
+    const rowBase = { display: 'grid', gridTemplateColumns: '1fr 40px 1fr', gap: '0 20px', padding: '18px 16px', borderBottom: '1px solid rgba(20,19,17,.07)', alignItems: 'center', borderRadius: 8 };
+
+    const compareRows = [
+      { field: 'Symptom onset', owner: '~2 hrs before visit, reported 4:12 PM', vet: 'Exam started 4:45 PM, consistent with report', visible: true, rowStyle: rowBase, ...matchIcon(true) },
+      { field: 'Reported symptom', owner: 'Limping, left hind leg', vet: 'Left hind limb lameness confirmed on exam', visible: true, rowStyle: rowBase, ...matchIcon(true) },
+      { field: 'Severity', owner: 'Reluctant to bear weight', vet: 'Grade 2/5 lameness observed', visible: true, rowStyle: rowBase, ...matchIcon(true) },
+      { field: 'Prior injury history', owner: 'None reported', vet: 'Old scar tissue noted, unrelated to current injury', visible: showFlagged,
+        rowStyle: { ...rowBase, background: '#FDF6E9', cursor: 'pointer', borderBottom: '1px solid rgba(232,166,61,.3)' },
+        onClick: () => this.setState(s => ({ flagExpanded: !s.flagExpanded })),
+        showDetail: this.state.flagExpanded,
+        ...matchIcon(false) },
+    ];
+
+    const stakeholderTabs = STAKEHOLDER_DEFS.map(s => ({
+      ...s,
+      select: () => this.setState({ stakeholderTab: s.key }),
+      active: s.key === this.state.stakeholderTab,
+      tabStyle: {
+        display: 'flex', alignItems: 'center', gap: 6,
+        fontSize: 13, fontWeight: 700, padding: '10px 20px', borderRadius: 999, cursor: 'pointer',
+        background: s.key === this.state.stakeholderTab ? s.color : '#fff',
+        color: s.key === this.state.stakeholderTab ? '#fff' : 'rgba(20,19,17,.55)',
+        border: s.key === this.state.stakeholderTab ? `1.5px solid ${s.color}` : '1.5px solid rgba(20,19,17,.15)',
+        boxShadow: s.key === this.state.stakeholderTab ? '0 3px 10px rgba(20,19,17,.18)' : 'none',
+        transform: s.key === this.state.stakeholderTab ? 'scale(1.04)' : 'scale(1)',
+        transition: 'all .15s ease',
+      },
+    }));
+    const rawActive = STAKEHOLDER_DEFS.find(s => s.key === this.state.stakeholderTab);
+    const toParts = arr => arr.map(([text, bold]) => ({ text, style: { fontWeight: bold ? 800 : 400 } }));
+    const activeStakeholder = { ...rawActive, problemParts: toParts(rawActive.problem), solutionParts: toParts(rawActive.solution) };
+
+    const waveBars = Array.from({ length: 9 }).map((_, i) => ({
+      style: { width: 3, height: 20, borderRadius: 2, background: '#3350E8', animation: `ap-bar ${0.7 + (i % 4) * 0.15}s ease-in-out infinite`, animationDelay: `${i * 0.07}s` },
+    }));
+
+    return {
+      petName, petBreed, claimId,
+      phoneTitle: 'AllyPet AI',
+      isRecord: step === 'record', isDraft: step === 'draft', isSignoff: step === 'signoff',
+      isSent: step === 'sent', isTimeline: step === 'timeline',
+      steps, soapRows, timelineEntries, compareRows, waveBars, stakeholderTabs, activeStakeholder,
+      transcript: "Max started limping on his left hind leg after our walk, maybe two hours ago. He's not yelping but won't put weight on it.",
+      draftTimestamp: 'Jul 25, 2026 · 4:12 PM',
+      consistencyScore: 96,
+      autoplayLabel: this.state.autoplay ? 'Auto-play on, click to pause' : 'Auto-play off — click to cycle steps',
+      autoplayDotStyle: { width: 8, height: 8, borderRadius: 999, background: this.state.autoplay ? '#2E9E52' : 'rgba(20,19,17,.25)' },
+      toggleAutoplay: () => this.setState(s => ({ autoplay: !s.autoplay })),
+    };
+  }
+}
+</script>
+</body>
+</html>
