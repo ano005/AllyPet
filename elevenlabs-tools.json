@@ -1,0 +1,115 @@
+{
+  "_readme": "Add these in ElevenLabs → your agent → Tools. client tools run inside the Veyra page (no server needed). The server tool posts to api/elevenlabs-webhook.js once deployed.",
+  "client_tools": [
+    {
+      "type": "client",
+      "name": "submit_research_request",
+      "description": "Call once you know what the user wants to sell. Starts product research on screen.",
+      "expects_response": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "transcript": {
+            "type": "string",
+            "description": "The user's request in their own words"
+          },
+          "budget": {
+            "type": "number",
+            "description": "Total money available to start, GBP"
+          },
+          "price_min": {
+            "type": "number",
+            "description": "Lowest selling price, GBP"
+          },
+          "price_max": {
+            "type": "number",
+            "description": "Highest selling price, GBP"
+          },
+          "min_profit": {
+            "type": "number",
+            "description": "Minimum profit per sale, GBP"
+          },
+          "category": {
+            "type": "string",
+            "description": "Product area, e.g. pets, kitchen"
+          },
+          "lightweight": {
+            "type": "boolean",
+            "description": "User wants light, cheap-to-ship products"
+          },
+          "competition": {
+            "type": "string",
+            "enum": [
+              "low",
+              "manageable",
+              "any"
+            ]
+          },
+          "experience": {
+            "type": "string",
+            "enum": [
+              "none",
+              "some",
+              "experienced"
+            ]
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "low_risk",
+              "higher_profit",
+              "easy_to_handle"
+            ]
+          }
+        },
+        "required": [
+          "transcript"
+        ]
+      }
+    },
+    {
+      "type": "client",
+      "name": "open_product",
+      "description": "Open the report for a product the user asks about.",
+      "expects_response": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "product_name"
+        ]
+      }
+    },
+    {
+      "type": "client",
+      "name": "show_suppliers",
+      "description": "Show supplier comparison for a product.",
+      "expects_response": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "product_name"
+        ]
+      }
+    }
+  ],
+  "server_tool": {
+    "type": "webhook",
+    "name": "research_products",
+    "description": "Server-side research. Same parameters as submit_research_request.",
+    "api_schema": {
+      "url": "https://YOUR-DOMAIN/api/elevenlabs-webhook",
+      "method": "POST",
+      "request_body_schema": "same as submit_research_request.parameters"
+    }
+  }
+}
